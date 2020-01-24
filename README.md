@@ -1,0 +1,1 @@
+# cc11-project.api-service-solo
