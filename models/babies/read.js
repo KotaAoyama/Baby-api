@@ -5,7 +5,6 @@ module.exports = (knex, Baby) => {
         .where({ country_code: params.country_code })
         .select()
         .then((babies) => {
-          console.log("$$$$$$$$$$$$$$$$$ babies $$$$$$$$$$$$$$", babies);
           return babies.map((baby) => {
             return new Baby(baby);
           });
