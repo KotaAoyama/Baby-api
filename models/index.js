@@ -1,6 +1,6 @@
 module.exports = function(knex) {
   return {
-    baby: require("./baby")(knex),
-    country: require("./country")(knex),
+    // baby: require("./babies")(knex),
+    countries: require("./countries")(knex),
   };
 };

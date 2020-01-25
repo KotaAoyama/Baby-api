@@ -5,10 +5,12 @@
   "author": "KotaAoyama <hongcha811@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js",
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js",
     "lint": "eslint --fix --ext .js .",
-    "test": "mocha test && yarn lint"
+    "test": "mocha tests/test.js && yarn lint",
+    "migrate": "knex migrate:latest --knexfile models/knexfile.js",
+    "rollback": "knex migrate:rollback --knexfile models/knexfile.js "
   },
   "husky": {
     "hooks": {
