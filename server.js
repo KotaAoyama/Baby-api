@@ -12,6 +12,13 @@ const setupServer = () => {
   app.use(express.static("./public"));
   app.use(morgan("dev"));
   app.use(express.json());
+  app.use((err, req, res, next) => {
+    if (err.stack) {
+      if (err.stack.match("node_modules/body-parser"))
+        return res.status(400).send("Invalid JSON");
+    }
+    return res.status(500).send("Internal Error.");
+  });
 
   app.get("/api/babies", async (req, res) => {
     const babies = await models.babies.list(req.query);

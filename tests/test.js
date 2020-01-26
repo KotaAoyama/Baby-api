@@ -5,14 +5,19 @@ chai.use(chaiHttp);
 const config = require("../config");
 const knex = require("knex")(config.db);
 const models = require("../models")(knex);
-// const { setupServer } = require("../server");
-// const app = setupServer();
+const { setupServer } = require("../server");
+const app = setupServer();
 
 const forcePromiseReject = () => {
   throw new Error("This promise should have failed, but did not.");
 };
 
 describe("babies", () => {
+  let request;
+  beforeEach(() => {
+    request = chai.request(app);
+  });
+
   describe("setup", () => {
     it("able to connect to database", () =>
       knex
@@ -35,13 +40,15 @@ describe("babies", () => {
           body = { baby_name: " " };
         });
 
-        it("politely refuses", () =>
-          models.babies
-            .create(body)
-            .then(forcePromiseReject)
-            .catch((err) =>
-              expect(err.message).to.equal("baby name must be provided")
-            ));
+        it("politely refuses", () => {
+          it("politely refuses", () =>
+            models.babies
+              .create(body)
+              .then(forcePromiseReject)
+              .catch((err) =>
+                expect(err.message).to.equal("baby name must be provided")
+              ));
+        });
       }
     );
 
@@ -80,6 +87,12 @@ describe("babies", () => {
           });
           expect(baby.id).to.be.a("number");
         }));
+
+      it("POST /api/babies", async () => {
+        const res = await request.post("/api/babies").send(body);
+        const expected = { baby_name: "ai", country_code: "JP" };
+        expect(res.body).to.deep.include(expected);
+      });
     });
   });
 
@@ -90,19 +103,25 @@ describe("babies", () => {
       { baby_name: "shelly", country_code: "US" },
     ];
 
-    before(() => Promise.all(babies.map(models.babies.create)));
-    after(() => knex("babies").del());
+    beforeEach(() => Promise.all(babies.map(models.babies.create)));
+    afterEach(() => knex("babies").del());
 
-    it("lists all babies", () => {
-      models.babies
-        .list()
-        .then((babies) => babies.map((baby) => baby.serialize()))
-        .then((res) => {
-          expect(res).to.deep.include(babies[0]);
-          expect(res).to.deep.include(babies[1]);
-          expect(res).to.deep.include(babies[2]);
-          expect(res.length).to.equal(babies.length);
-        });
+    it("GET /api/babies", async () => {
+      const res = await request.get("/api/babies");
+      expect(res.body).to.deep.include(babies[0]);
+      expect(res.body).to.deep.include(babies[1]);
+      expect(res.body).to.deep.include(babies[2]);
+      expect(res.body.length).to.equal(babies.length);
+    });
+
+    it("GET /api/babies?country_code=US", async () => {
+      const res = await request
+        .get("/api/babies")
+        .query({ country_code: "US" });
+      expect(res.body).to.not.deep.include(babies[0]);
+      expect(res.body).to.deep.include(babies[1]);
+      expect(res.body).to.deep.include(babies[2]);
+      expect(res.body.length).to.equal(2);
     });
   });
 });

@@ -22,4 +22,3 @@ module.exports = (knex) => {
     delete: require("./delete")(knex),
   };
 };
-// module.exports = Baby;
