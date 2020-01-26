@@ -6,7 +6,19 @@ My service is a world popular baby name api.
 
 ## Endpoints
 
-### GET /api/babies
+### GET /api/babies?country_code=
+
+response format:
+
+```
+[
+ {"baby_name":"james","country_code":"IE"},
+ {"baby_name":"emily","country_code":"IE"},
+ {"baby_name":"grace","country_code":"IE"}
+]
+```
+
+### GET /api/babies/:country_code
 
 response format:
 
