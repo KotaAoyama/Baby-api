@@ -12,7 +12,9 @@ response format:
 
 ```
 [
- {"baby_name":"james","country_code":"IE"},{"baby_name":"emily","country_code":"IE"},{"baby_name":"grace","country_code":"IE"}
+ {"baby_name":"james","country_code":"IE"},
+ {"baby_name":"emily","country_code":"IE"},
+ {"baby_name":"grace","country_code":"IE"}
 ]
 ```
 
@@ -65,7 +67,7 @@ boolean
 
 ### How to use?
 
-I don't deploy on the public server yet.
+I don't deploy on a public server yet.
 
 So firstlly download Postgresql in your computer
 and create a new database named `world_baby`.
