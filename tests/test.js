@@ -72,7 +72,7 @@ describe("babies", () => {
     context("when good request body are given", () => {
       before(() => {
         body.baby_name = "ai";
-        body.country_code = "jp";
+        body.country_code = "JP";
       });
 
       after(() => knex("babies").del());
