@@ -1,6 +1,6 @@
 module.exports = (knex, Baby) => {
   return (query) => {
-    if (query.country_code) {
+    if (query && query.country_code) {
       return knex("babies")
         .where({ country_code: query.country_code })
         .select()

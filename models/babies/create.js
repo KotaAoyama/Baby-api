@@ -1,7 +1,11 @@
-const validateCountryCodeLength = (countryCode) => {
-  return (
-    typeof countryCode === "string" && countryCode.replace(" ", "").length === 2
-  );
+const validateBabyName = (babyName) => {
+  return typeof babyName === "string" && babyName.replace(" ", "").length !== 0;
+};
+
+const countryNames = require("../../data/countryNames");
+const validateCountryCodeJustify = (countryCode) => {
+  const countryCodes = Object.keys(countryNames);
+  return countryCodes.includes(countryCode.toUpperCase());
 };
 
 module.exports = (knex, Baby) => {
@@ -9,13 +13,15 @@ module.exports = (knex, Baby) => {
     const babyName = body.baby_name;
     const countryCode = body.country_code;
 
-    if (!validateCountryCodeLength(countryCode)) {
-      return Promise.reject(
-        new Error("country_code must be provided, and be two characters")
-      );
+    if (!validateBabyName(babyName)) {
+      return Promise.reject(new Error("baby name must be provided"));
     }
 
-    // TODO: Validate: prohibit BabyName from duplicating i
+    if (!validateCountryCodeJustify(countryCode)) {
+      return Promise.reject(new Error("country code must be justify"));
+    }
+
+    // TODO: Validate: prohibit BabyName from duplicating in a country
 
     return knex("babies")
       .insert({

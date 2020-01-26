@@ -12,7 +12,6 @@ const setupServer = () => {
   app.use(express.static("./public"));
   app.use(morgan("dev"));
   app.use(express.json());
-  // app.use(express.urlencoded({ expected: true }));
 
   app.get("/api/babies", async (req, res) => {
     const babies = await models.babies.list(req.query);
@@ -32,14 +31,6 @@ const setupServer = () => {
   });
 
   app.patch("/api/babies/:baby_name/:country_code", async (req, res) => {
-    console.log(
-      "*** req.params ***",
-      req.params,
-      "*** req.body ***",
-      req.body,
-      "*** req.query ***",
-      req.query
-    );
     const response = await models.babies.update(req.params, req.body);
     res.send(response);
   });
