@@ -1,4 +1,4 @@
-# Introduction
+# Introduction: World Popular Baby Name API
 
 This project is creating an api service with express, postgresql and knex by myself
 in Cooding Boot Camp, CodeChrysalis.
