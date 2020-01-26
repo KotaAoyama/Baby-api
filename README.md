@@ -65,9 +65,13 @@ boolean
 
 ### How to use?
 
-I don't deploy the public server yet.
-So firstlly download Postgresql in your computer and create a new database named `world_baby`.
-Git clone or download the code and run `psql -d world_baby -f data/insertBabies.sql` inside `cc11-project.api-service-solo` directory.
+I don't deploy on the public server yet.
+
+So firstlly download Postgresql in your computer
+and create a new database named `world_baby`.
+Git clone or download the code and
+run `psql -d world_baby -f data/insertBabies.sql`
+inside `cc11-project.api-service-solo` directory.
 Open the `public/index.html` file in a browser.
 
 ### Country Code
