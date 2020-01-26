@@ -73,7 +73,7 @@ So firstlly download Postgresql in your computer
 and create a new database named `world_baby`.
 
 Git clone or download the code,
-run `yarn`, `yarn migrate` and `psql -d world_baby -f data/insertBabies.sql`
+and run `yarn`, `yarn migrate` and `psql -d world_baby -f data/insertBabies.sql`
 inside `cc11-project.api-service-solo` directory.
 
 And then Open the `public/index.html` file in a browser.
