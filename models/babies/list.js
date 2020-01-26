@@ -1,8 +1,8 @@
 module.exports = (knex, Baby) => {
-  return (params) => {
-    if (params !== undefined) {
+  return (query) => {
+    if (query.country_code) {
       return knex("babies")
-        .where({ country_code: params.country_code })
+        .where({ country_code: query.country_code })
         .select()
         .then((babies) => {
           return babies.map((baby) => {
@@ -10,7 +10,6 @@ module.exports = (knex, Baby) => {
           });
         })
         .catch((err) => {
-          // throw unknown errors
           return Promise.reject(err);
         });
     } else {
@@ -22,7 +21,6 @@ module.exports = (knex, Baby) => {
           });
         })
         .catch((err) => {
-          // throw unknown errors
           return Promise.reject(err);
         });
     }

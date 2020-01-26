@@ -4,7 +4,23 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <div id="display"></div>
-    <script src="../server.js"></script>
+    <h1>World Popular Baby Name API</h1>
+    <form method="get" action="/api/babies">
+      <fieldset>
+        <h3>GET /api/babies</h3>
+        <input placeholder="?country_code=" name="country_code" maxlength="2" />
+        <button>Submit</button>
+      </fieldset>
+    </form>
+    <br />
+    <form method="post" action="/api/babies">
+      <fieldset>
+        <h3>POST /api/babies</h3>
+        <input placeholder="baby_name" name="baby_name" />
+        <input placeholder="country_code" name="country_code" maxlength="2" />
+        <button>Submit</button>
+      </fieldset>
+    </form>
+    <br />
   </body>
 </html>

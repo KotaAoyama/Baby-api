@@ -13,6 +13,8 @@ module.exports = (knex, Baby) => {
       );
     }
 
+    // TODO: Validate: prohibit BabyName from duplicating in a country!!!
+
     return knex("babies")
       .where({
         baby_name: beforeBabyName.toLowerCase(),

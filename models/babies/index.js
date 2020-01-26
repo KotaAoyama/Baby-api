@@ -7,7 +7,6 @@ class Baby {
 
   serialize() {
     return {
-      id: this.id,
       baby_name: this.baby_name,
       country_code: this.country_code,
     };
@@ -17,7 +16,8 @@ class Baby {
 module.exports = (knex) => {
   return {
     create: require("./create")(knex, Baby),
-    read: require("./read")(knex, Baby),
+    list: require("./list")(knex, Baby),
+    get: require("./get")(knex, Baby),
     update: require("./update")(knex, Baby),
     delete: require("./delete")(knex),
   };

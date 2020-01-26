@@ -6,9 +6,6 @@ const { setupServer } = require("../server");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 chai.use(chaiHttp);
-// chai.should();
-
-// Another reason we separated creating our server from starting it
 const app = setupServer();
 
 const forcePromiseReject = () => {

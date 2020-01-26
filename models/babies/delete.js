@@ -1,7 +1,7 @@
 const validateCountryCode = (countryCode) =>
   typeof countryCode === "string" && countryCode.replace(" ", "").length === 2;
 
-module.exports = (knex, Baby) => {
+module.exports = (knex) => {
   return (params) => {
     const babyName = params.baby_name;
     const countryCode = params.country_code;
