@@ -1,4 +1,4 @@
-# Introduction: World Popular Baby Name API
+# World Popular Baby Name API
 
 This project is creating an api service with express, postgresql and knex by myself
 in Coding Boot Camp, CodeChrysalis.
@@ -89,7 +89,10 @@ Git clone or download the code.
 Run `yarn`, `yarn migrate` and `psql -d world_baby -f data/insertBabies.sql`
 inside `cc11-project.api-service-solo` directory.
 
-Open the `public/index.html` file in a browser.
+- Open the `public/index.html` file in a browser.
+
+- After running `yarn dev`, use [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) tesing apis.
+(localhost:3000)
 
 ### Country Code
 
