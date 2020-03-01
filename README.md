@@ -91,7 +91,7 @@ inside `cc11-project.api-service-solo` directory.
 
 - Open the `public/index.html` file in a browser.
 
-- After running `yarn dev`, use [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) tesing apis.
+- After running `yarn start`, use [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/) tesing apis.
 (localhost:3000)
 
 ### Country Code
