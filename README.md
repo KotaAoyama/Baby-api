@@ -87,7 +87,7 @@ and create a new database named `world_baby`.
 Git clone or download the code.
 
 Run `yarn`, `yarn migrate` and `psql -d world_baby -f data/insertBabies.sql`
-inside `cc11-project.api-service-solo` directory.
+inside the cloned/downloaded directory.
 
 - Open the `public/index.html` file in a browser.
 
