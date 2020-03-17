@@ -79,10 +79,8 @@ boolean
 
 ### How to use?
 
-I don't deploy on a public server yet.
-
-So firstlly download Postgresql in your computer
-and create a new database named `world_baby`.
+Download Postgresql and run
+`echo "CREATE DATABASE world_baby;" | psql`
 
 Git clone or download the code.
 
