@@ -79,8 +79,9 @@ boolean
 
 ### How to use?
 
-Download Postgresql and run
-`echo "CREATE DATABASE world_baby;" | psql`
+Download Postgresql.
+
+Run `echo "CREATE DATABASE world_baby;" | psql` in termial.
 
 Git clone or download the code.
 
