@@ -3,7 +3,7 @@
 This project is creating an api service with express, postgresql and knex by myself
 in [CodeChrysalis](https://www.codechrysalis.io/).
 My service is a world popular baby name api. 
-You can Create, Read, Update, Delete world popupar baby name via REST API.
+You can CRUD world popupar baby name via REST API.
 
 ## Endpoints
 
