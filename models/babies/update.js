@@ -13,7 +13,7 @@ module.exports = (knex, Baby) => {
       );
     }
 
-    // TODO: Validate: prohibit BabyName from duplicating in a country!!!
+    // TODO: Validate: prohibit BabyName from duplicating in a country
 
     return knex("babies")
       .where({
@@ -31,7 +31,7 @@ module.exports = (knex, Baby) => {
           })
           .select();
       })
-      .then((babies) => new Baby(babies.pop())) // create a baby model out of the plain database response
+      .then((babies) => new Baby(babies.pop()))
       .catch((err) => Promise.reject(err));
   };
 };
