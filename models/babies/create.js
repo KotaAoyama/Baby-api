@@ -36,7 +36,7 @@ module.exports = (knex, Baby) => {
           })
           .select();
       })
-      .then((babies) => new Baby(babies.pop())) // create a baby model out of the plain database response
+      .then((babies) => new Baby(babies.pop()))
       .catch((err) => Promise.reject(err));
   };
 };
